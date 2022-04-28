@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkfront"]=self["webpackChunkfront"]||[]).push([[443],{3211:function(e,n,t){t.r(n),t.d(n,{default:function(){return a}});var u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div")},r=[],f={name:"About"},l=f,c=t(1001),s=(0,c.Z)(l,u,r,!1,null,"fe045270",null),a=s.exports}}]);
+//# sourceMappingURL=about.8562985d.js.map
