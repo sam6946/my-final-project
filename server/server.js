@@ -20,9 +20,7 @@ mongoose.connect(`${url}`, {useNewUrlParser: true}, () =>{
 })
 
 //Middleware
-app.get("/", (req, res) => {
-    res.send('hello world')
-})
+
 
 //middleware for extra security
 app.set('trust proxy', 1)
