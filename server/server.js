@@ -12,6 +12,7 @@ const transaction = require('./router/transaction')
 const authTransaction = require('./controller/verifyToken')
 const notification = require('./router/message')
 const favicon = require('serve-favicon')
+const path = require('path')
 
 
 //connect to 
@@ -50,11 +51,11 @@ if(process.env.NODE_ENV === 'production'){
 
     //Handler SPA
     app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
-    app.use(favicon(__dirname + /public/favicon.ico))
+    app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 }
 
 
 const port = process.env.PORT || 3001
-app.listen(port, (req,res) =>{
+app.listen(port, (req,res) =>{ 
     console.log(`The app is running on http://localhost:${port}`)
 })
