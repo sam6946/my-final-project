@@ -11,6 +11,7 @@ const authRoute = require('./router/ath')
 const transaction = require('./router/transaction')
 const authTransaction = require('./controller/verifyToken')
 const notification = require('./router/message')
+const favicon = require('serve-favicon')
 
 
 //connect to 
@@ -45,10 +46,11 @@ app.use( authTransaction, notification)
 if(process.env.NODE_ENV === 'production'){
     //static folder
     //app.use(express.static(__direname + '/public/'))
-    app.use(express.static(__dirname + '../front/public/'))
+    app.use(express.static(__dirname + '/front/public/'))
 
     //Handler SPA
-    app.get(/.*/, (req, res) => res.sendFile(__dirname + '../public/index.html'))
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+    app.use(favicon(__dirname + /public/favicon.ico))
 }
 
 
@@ -56,4 +58,3 @@ const port = process.env.PORT || 3001
 app.listen(port, (req,res) =>{
     console.log(`The app is running on http://localhost:${port}`)
 })
-//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
