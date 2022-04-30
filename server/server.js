@@ -45,10 +45,10 @@ app.use( authTransaction, notification)
 if(process.env.NODE_ENV === 'production'){
     //static folder
     //app.use(express.static(__direname + '/public/'))
-    app.use(express.static(__dirname + '/public/'))
+    app.use(express.static(__dirname + '../front/public/'))
 
     //Handler SPA
-    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '../public/index.html'))
 }
 
 
@@ -56,3 +56,4 @@ const port = process.env.PORT || 3001
 app.listen(port, (req,res) =>{
     console.log(`The app is running on http://localhost:${port}`)
 })
+//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
