@@ -37,20 +37,19 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-
+app.use(express.static(__dirname + '/public/'))
+//Handler SPA
+app.get('/', (req, res) => res.sendFile(__dirname + '/public', '/index.html'))
+app.use(favicon(path.join(__dirname, './public', 'favicon.ico')))
 //Route Middleware
 app.use( authRoute)
 app.use(postAuth)
 app.use( authTransaction, transaction)    //authTransaction,
 app.use( authTransaction, notification)
 // Handle production
-if(process.env.NODE_ENV === 'production'){
+//if(process.env.NODE_ENV === 'production'){
     //static folder
-    app.use(express.static(__dirname + './public/'))
-    //Handler SPA
-    app.get('*', (req, res) => res.sendFile(__dirname + './public', '/index.html'))
-    app.use(favicon(path.join(__dirname, './public', 'favicon.ico')))
-}
+//}
 
 
 
