@@ -26,10 +26,10 @@ mongoose.connect(`${url}`, {useNewUrlParser: true}, () =>{
 
 //middleware for extra security
 app.set('trust proxy', 1)
-app.use(rateLimiter({
-  windowMs: 15 * 60 * 1000, // 15minutes
-  max: 100, // limit each IP to 100requests per windowMs
-}))
+// app.use(rateLimiter({
+//   windowMs: 15 * 60 * 1000, // 15minutes
+//   max: 100, // limit each IP to 100requests per windowMs
+// }))
 app.use(helmet())
 app.use(xss())
 app.use(cors())
@@ -44,12 +44,8 @@ app.use(favicon(path.join(__dirname, '/public', 'favicon.ico')))
 //Route Middleware
 app.use( authRoute)
 app.use(postAuth)
-app.use( authTransaction, transaction)    //authTransaction,
+app.use( authTransaction, transaction)   
 app.use( authTransaction, notification)
-// Handle production
-//if(process.env.NODE_ENV === 'production'){
-    //static folder
-//}
 
 
 
