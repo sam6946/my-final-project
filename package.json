@@ -4,11 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "build-front": "cd front && npm run build",
-    "install-front": "cd front && npm install",
-    "postbuild": "npm run install-front && npm run build-front"
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",

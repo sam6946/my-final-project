@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static(__dirname + '/public'))
 //Handler SPA
-app.get('/*', (req, res) => res.sendFile(__dirname + '/public', '/index.html'))
+app.get('/.*/', (req, res) => res.sendFile(__dirname + '/public', '/index.html'))
 app.use(favicon(path.join(__dirname, '/public', 'favicon.ico')))
 //Route Middleware
 app.use( authRoute)
